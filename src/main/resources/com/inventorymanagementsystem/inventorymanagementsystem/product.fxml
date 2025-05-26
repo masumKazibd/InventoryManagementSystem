@@ -15,10 +15,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="500.0" prefWidth="800"
+            fx:controller="com.inventorymanagementsystem.inventorymanagementsystem.controller.ProductController"
+            xmlns:fx="http://javafx.com/javafx">
    <top>
       <HBox alignment="CENTER" prefHeight="100.0" BorderPane.alignment="CENTER">
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Product Management" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                  style="-fx-font-size: 20; -fx-font-weight: bold;" text="Product Management" />
       </HBox>
    </top>
    <center>
