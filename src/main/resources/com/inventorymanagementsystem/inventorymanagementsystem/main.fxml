@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+             fx:controller="com.inventorymanagementsystem.inventorymanagementsystem.controller.MainController">
+    <tabs>
+        <Tab text="Product Setup">
+            <fx:include fx:id="productTab" source="product.fxml"/>
+        </Tab>
+        <Tab text="Stock In/Out">
+            <fx:include fx:id="stockTab" source="stock.fxml"/>
+        </Tab>
+        <Tab text="Reports">
+            <fx:include fx:id="reportTab" source="report.fxml"/>
+        </Tab>
+    </tabs>
+</TabPane>
