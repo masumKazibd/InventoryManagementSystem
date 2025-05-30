@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Tooltip?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.inventorymanagementsystem.inventorymanagementsystem.controller.StockController">
 
 <top>
@@ -54,7 +55,15 @@
 
 <right>
     <VBox spacing="10" style="-fx-border-color: gray; -fx-border-width: 1;">
-        <Label style="-fx-font-weight: bold;" text="Stock Transaction" />
+        <HBox alignment="CENTER_LEFT" spacing="5">
+            <Label style="-fx-font-weight: bold;" text="Stock Transaction" />
+            <Button fx:id="refreshButton" onAction="#handleRefresh" text="⟳">
+                <tooltip>
+                    <Tooltip text="Refresh product list"/>
+                </tooltip>
+            </Button>
+        </HBox>
+
 
         <GridPane hgap="5" vgap="5">
             <Label text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />

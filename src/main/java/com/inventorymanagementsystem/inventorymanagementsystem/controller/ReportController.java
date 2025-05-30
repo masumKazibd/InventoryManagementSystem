@@ -9,7 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.FileChooser;
 
+import java.io.File;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -35,6 +38,7 @@ public class ReportController {
         quantityColumn.setCellValueFactory(cellData -> new javafx.beans.property.SimpleIntegerProperty(cellData.getValue().getQuantity()).asObject());
         dateColumn.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getDate()));
         notesColumn.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getNotes()));
+
     }
     @FXML
     private void handleGenerateReport() {
@@ -77,9 +81,43 @@ public class ReportController {
 
     @FXML
     private void handleExportToCSV() {
-        // Placeholder: logic coming soon!
-        System.out.println("Exporting to CSV...");
+        ObservableList<Transaction> transactions = reportTable.getItems();
+        if (transactions.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "No data to export.");
+            return;
+        }
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save CSV File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+        File file = fileChooser.showSaveDialog(reportTable.getScene().getWindow());
+
+        if (file != null) {
+            try (PrintWriter writer = new PrintWriter(file)) {
+                // Write header
+                writer.println("ID,Product,Type,Quantity,Date,Notes");
+
+                // Write data
+                for (Transaction t : transactions) {
+                    String line = String.format("%d,%s,%s,%d,%s,%s",
+                            t.getId(),
+                            t.getProductName().replaceAll(",", ""), // Avoid CSV errors
+                            t.getTransactionType(),
+                            t.getQuantity(),
+                            t.getDate(),
+                            t.getNotes().replaceAll(",", ""));
+                    writer.println(line);
+                }
+
+                showAlert(Alert.AlertType.INFORMATION, "CSV file exported successfully!");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                showAlert(Alert.AlertType.ERROR, "Failed to export CSV file.");
+            }
+        }
     }
+
 
 
     private void showAlert(Alert.AlertType type, String content) {

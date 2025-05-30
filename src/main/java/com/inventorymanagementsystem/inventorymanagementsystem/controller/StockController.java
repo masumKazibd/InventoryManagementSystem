@@ -55,6 +55,12 @@ public class StockController {
         currentType = "OUT";
         typeField.setText("OUT");
     }
+    @FXML
+    private void handleRefresh() {
+        loadProducts();
+        showAlert(Alert.AlertType.INFORMATION, "Refreshed", "Product list refreshed successfully!");
+    }
+
 
     @FXML
     private void handleSaveTransaction() {
@@ -140,7 +146,7 @@ public class StockController {
         currentType = "";
     }
 
-    private void loadProducts() {
+    void loadProducts() {
         ObservableList<Product> products = FXCollections.observableArrayList();
         String sql = "SELECT * FROM products";
         try (Connection conn = DatabaseConnection.getConnection();
