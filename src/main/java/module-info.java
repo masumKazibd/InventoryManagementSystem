@@ -4,6 +4,7 @@ module com.inventorymanagementsystem.inventorymanagementsystem {
 
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
+    requires java.sql;
 
     opens com.inventorymanagementsystem.inventorymanagementsystem.controller to javafx.fxml;
     // Open model package for TableView PropertyValueFactory if models use JavaFX properties

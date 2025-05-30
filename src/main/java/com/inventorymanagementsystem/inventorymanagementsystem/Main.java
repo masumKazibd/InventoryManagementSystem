@@ -1,5 +1,6 @@
 package com.inventorymanagementsystem.inventorymanagementsystem;
 
+import com.inventorymanagementsystem.inventorymanagementsystem.utils.DatabaseConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,12 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        try {
+            DatabaseConnection.getConnection();
+        } catch (Exception e) {
+            System.err.println("❌ Database connection failed: " + e.getMessage());
+        }
+
         launch();
     }
 }

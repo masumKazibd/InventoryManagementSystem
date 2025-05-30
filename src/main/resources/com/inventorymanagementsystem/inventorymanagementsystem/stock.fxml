@@ -32,24 +32,12 @@
 <center>
     <TableView fx:id="stockTable">
         <columns>
-            <TableColumn prefWidth="50" text="ID">
-                <cellValueFactory><PropertyValueFactory property="id" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="150" text="Product">
-                <cellValueFactory><PropertyValueFactory property="productName" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="80" text="Type">
-                <cellValueFactory><PropertyValueFactory property="transactionType" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="80" text="Quantity">
-                <cellValueFactory><PropertyValueFactory property="quantity" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="100" text="Date">
-                <cellValueFactory><PropertyValueFactory property="date" /></cellValueFactory>
-            </TableColumn>
-            <TableColumn prefWidth="200" text="Notes">
-                <cellValueFactory><PropertyValueFactory property="notes" /></cellValueFactory>
-            </TableColumn>
+            <TableColumn fx:id="idColumn" prefWidth="50" text="ID"/>
+            <TableColumn fx:id="productColumn" prefWidth="150" text="Product"/>
+            <TableColumn fx:id="typeColumn" prefWidth="50" text="Type"/>
+            <TableColumn fx:id="quantityColumn" prefWidth="50" text="Quantity"/>
+            <TableColumn fx:id="dateColumn" prefWidth="70" text="Date"/>
+            <TableColumn fx:id="notesColumn" prefWidth="50" text="Notes"/>
         </columns>
     </TableView>
 </center>
