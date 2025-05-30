@@ -8,7 +8,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.inventorymanagementsystem.inventorymanagementsystem.controller.ReportController">
@@ -40,24 +39,12 @@
 <center>
     <TableView fx:id="reportTable">
         <columns>
-            <TableColumn text="ID" prefWidth="50">
-                <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Product" prefWidth="150">
-                <cellValueFactory><PropertyValueFactory property="productName"/></cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Type" prefWidth="80">
-                <cellValueFactory><PropertyValueFactory property="transactionType"/></cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Quantity" prefWidth="80">
-                <cellValueFactory><PropertyValueFactory property="quantity"/></cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Date" prefWidth="100">
-                <cellValueFactory><PropertyValueFactory property="date"/></cellValueFactory>
-            </TableColumn>
-            <TableColumn text="Notes" prefWidth="200">
-                <cellValueFactory><PropertyValueFactory property="notes"/></cellValueFactory>
-            </TableColumn>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="productColumn" text="Product" prefWidth="150"/>
+            <TableColumn fx:id="typeColumn" text="Type" prefWidth="80"/>
+            <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="80"/>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="100"/>
+            <TableColumn fx:id="notesColumn" text="Notes" prefWidth="200"/>
         </columns>
     </TableView>
 </center>
